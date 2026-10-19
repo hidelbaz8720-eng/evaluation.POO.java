@@ -10,11 +10,11 @@ public class Main {
 		Employe []employe = {i1,i2,c1,c2};
 		Projet p1 = null ;
 		Projet p2 = null ;
-		i1.setSuperieur(i2);
-		i1.setSuperieur(c1);
-		c1.setSuperieur(c2);
+		i2.setSuperieur(i1);
+		c1.setSuperieur(i1);
+		c2.setSuperieur(c1);
 		for (Employe em :employe) {
-			System.out.println(em.afficherDetails() );
+			em.afficherDetails() ;
 			if(em.getSuperieur().equals(null)) {
 				System.out.println("pas de supérieur ");
 			}
@@ -27,15 +27,18 @@ public class Main {
 		Mission [] mission = {
 				m1,m2,m3,m4
 		};
+		int tout ;
 		for(Mission mi :mission ) {
 			mi.afficherRecapitulatif();
-			System.out.println("le montant total de toutes les missions:"+mi.calculerMontant());
+			tout +=mi.calculerMontant();
 		}
-		int comp =0;
-		for(int i =0 ; i<employe.length;i++) {
-			comp ++;
-		}
-		
+		System.out.println("Montant total de toutes les missions : "+tout);
+		int nbSupervisesDirects = 0;
+        for (Employe em : employes) {
+            if (em.getSuperieur() == i1) {
+                nbSupervisesDirects++;
+            }
+			System.out.println("\nLe nombre d'employés directement supervisés par " + i1.getNom() + " est : " + nbSupervisesDirects);
 	}
 
 }
