@@ -5,7 +5,7 @@ public class Ingenieur extends Employe {
 
 	public Ingenieur(String matricule, String nom, double tarifJournalier,int niveauExpertise) {
 		super(matricule, nom, tarifJournalier);
-		this.niveauExpertise=niveauExpertise;
+		this.niveauExpertise = niveauExpertise;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -17,8 +17,7 @@ public class Ingenieur extends Employe {
 		if(niveauExpertise >= 3) {
 			return (tarifJournalier * nbJours) + (100 *nbJours);
 		}
-		// TODO Auto-generated method stub
-		return 0;
+	
 	}
 
 }
