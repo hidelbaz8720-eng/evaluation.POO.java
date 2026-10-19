@@ -4,14 +4,19 @@ public abstract class Employe {
 	protected String matricule ;
 	protected String nom ;
 	protected double tarifJournalier ;
-	Employe Superieur;
+	private Employe Superieur;
 	
 	public Employe getSuperieur() {
 		return Superieur;
 	}
 	public void setSuperieur(Employe superieur) {
-		Superieur = superieur;
-	}
+        
+        if (superieur != null && superieur.getMatricule().equals(this.matricule)) {
+            System.out.println("Erreur : Un employé ne peut pas être son propre supérieur.");
+            return;
+        }
+        this.superieur = superieur;
+    }
 	public Employe(String matricule, String nom, double tarifJournalier) {
 		super();
 		this.matricule = matricule;
@@ -21,10 +26,10 @@ public abstract class Employe {
 	public String getMatricule() {
 		return matricule;
 	}
-	abstract double calculerCout(int nbJours) ;
+	pubic abstract double calculerCout(int nbJours) ;
 	
-	public String afficherDetails() {
-		return "Employe [matricule=" + matricule + ", nom=" + nom + ", tarifJournalier=" + tarifJournalier + "]";
+	public void afficherDetails() {
+		System.out.println( "Employe matricule=" + matricule + ", nom=" + nom + ", tarifJournalier=" + tarifJournalier + " ");
 	}
 	
 
